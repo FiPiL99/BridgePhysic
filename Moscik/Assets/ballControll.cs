@@ -8,7 +8,6 @@ public class ballControll : MonoBehaviour {
     
     
     public Rigidbody rb;
-    
     public void AddForce(Vector3 direction, float power) {
         rb.AddForce(direction * power, ForceMode.Impulse);
     }
@@ -22,11 +21,11 @@ public class ballControll : MonoBehaviour {
     void Update()
     {
     }
-
+    
     private void OnCollisionEnter(Collision other) {
         var rb = other.gameObject.GetComponent<Rigidbody>();
         if (rb != null) {
-            var joint = gameObject.AddComponent<FixedJoint>();
+            var joint = rb.gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = this.rb;
         }
     }

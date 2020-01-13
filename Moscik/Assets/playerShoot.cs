@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class playerShoot : MonoBehaviour {
     [SerializeField] private ballControll ballPrefab;
+    [SerializeField] private KeyCode keyShoot;
 
     public Transform spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
-        Shoot();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(keyShoot))
+            Shoot();
     }
 
     private void Shoot() {
